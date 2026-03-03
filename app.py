@@ -34,7 +34,10 @@ with st.expander("📌 About This System"):
 # ================= LOAD MODEL =================
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("skin_tone_model.h5")
+    return tf.keras.models.load_model(
+        "skin_tone_model.h5",
+        compile=False
+    )
 
 model = load_model()
 
@@ -158,4 +161,5 @@ if uploaded_file is not None:
     st.pyplot(fig)
 
 st.markdown("---")
+
 st.markdown("© 2026 | B.Tech Final Year Project | AI Skin Tone Classification System")
